@@ -8,9 +8,5 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Test';
-  constructor(private route: ActivatedRoute, private router: Router) { }
 
-  CreateEmployee(){
-    this.router.navigateByUrl(('EmployeeCreation'));
-  }
 }

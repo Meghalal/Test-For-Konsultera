@@ -1,0 +1,171 @@
+<div class="top1">
+    <div class="row">
+    <div class="col-12">
+    <div style="box-shadow: 5px 10px #d4d3d3;" class="card">
+  
+    <div class="card-header clr size">
+    <h2 class="card-title mar">Employees</h2>
+    <div class="card-tools" style="margin-top: 2px;">
+  
+  
+   <div class="search-button">
+    <input type="search" name="table_search" class="form-control icon" placeholder="Search.." >
+   </div>
+  
+  
+    <button mat-mini-fab color="primary" class="add-button"  matTooltip="Add new" (click)="CreateEmployee()">
+    <mat-icon>add</mat-icon>
+    </button>
+   </div>
+   
+    </div>
+  
+  <!--------------grid view------------------ --------------------------------->
+    
+  <div class="mat-5 space start" >
+  
+    <div class="row">
+        <mat-grid-list rowHeight="2:1" gutterSize="7px"  >
+    
+           <mat-grid-tile  >    
+           <div class="grid_div" >
+            <div>
+                <img class="image_size line"></div>
+                <ng-template #noImage>
+                <img src="assets/img/dummy.jpg" class="image_size line">
+                </ng-template>
+  
+                <div class="grid_name line">
+                <span class="hedding">sss</span><br>
+                <span class="hedding1">eee</span><br>
+                <span class="hedding1">dddd</span>
+               </div>
+            </div>
+               <!-------menu--------->
+               <div class="modal fade top" id="modal-sm1" style="display: none;" aria-hidden="true" >
+    
+                <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                
+                <div class="modal-body" >
+                    <h3 style="text-align: center;">Are you sure to delete?</h3>
+                   
+            
+                </div>
+               
+               
+                 
+                <div class="modal-footer justify-content-between" >
+                    
+                   
+               
+                <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal">Submit</button>
+                <button type="button" class="btn btn-default" style="margin-right: 50px;"  data-dismiss="modal">Cancel</button>
+                
+                
+                </div>
+        
+        
+                
+                </div>
+                </div>
+                </div>
+       
+        <!----------------------->
+       
+           </mat-grid-tile>
+    
+    </mat-grid-list>
+    </div>
+    </div>
+  <!--------------------table view---------------------------------------->
+  
+  <div  class="card-body table-responsive p-0">
+     <table class="table table-hover text-nowrap">
+    <thead>
+    <tr>
+   
+    <th class="text_clr">NAME</th>
+    <th class="text_clr">E-MAIL</th>
+    <th class="text_clr">MOBILE</th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    
+    <td ><b>sss</b></td>
+    <td>ss</td>
+    <td>ss</td>
+    <td>
+        <div class="modal fade top" id="modal-sm1" style="display: none;" aria-hidden="true" >
+    
+            <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+            
+            <div class="modal-body" >
+                <h3 style="text-align: center;">Are you sure to delete?</h3>
+               
+        
+            </div>
+           
+           
+             
+            <div class="modal-footer justify-content-between" >
+                
+               
+           
+            <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" style="margin-right: 50px;"  data-dismiss="modal">Cancel</button>
+            
+            
+            </div>
+    
+    
+            
+            </div>
+            </div>
+            </div>
+        
+    <mat-icon [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+          
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item >
+        <span> <mat-icon>create</mat-icon>
+        <b>Modify</b></span>
+    </button>
+  
+    <button mat-menu-item>
+        <mat-icon>description</mat-icon>
+        <span><b>View</b></span>
+    </button>
+            
+    <button mat-menu-item data-toggle="modal" data-target="#modal-sm1">
+        <mat-icon>delete_forever</mat-icon>
+        <span><b>Delete</b></span>
+    </button>
+  
+    </mat-menu>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    
+    </div>
+    
+    </div>
+    </div>
+  <!---------------------paging------------------------------------->
+  
+  <ul class="pagination position" style="padding-left:20px;">
+  <li class="paginate_button page-item previous" id="example2_previous">
+  <a aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link count">Previous</a></li>
+  
+  <li class="paginate_button page-item "><a aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link count"></a></li>
+           
+  <li class="paginate_button page-item next" id="example2_next">
+  <a  aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+  </ul>
+  
+  

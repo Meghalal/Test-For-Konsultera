@@ -8,12 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { EmployeeListingComponent } from './employee-listing/employee-listing.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    EmployeeListingComponent
   ],
   imports: [
     BrowserModule,
