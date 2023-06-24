@@ -7,11 +7,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./employee-listing.component.css']
 })
 export class EmployeeListingComponent {
-  constructor(private route: ActivatedRoute, private router: Router) { }
+constructor(private route: ActivatedRoute, private router: Router) { }
 
+  //--------function for routing to create employee page-----------//
   CreateEmployee(){
-   // this.router.navigateByUrl(('/EmployeeCreation'));
    this.router.navigate(['/EmployeeCreation']);
+  }
+  //--------function for routing to create employee page-----------//
+  UpdateEmployee(){
+    this.router.navigate(['/EmployeeUpdation']);
   }
 
 }

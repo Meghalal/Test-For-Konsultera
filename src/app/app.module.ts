@@ -9,13 +9,20 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { EmployeeListingComponent } from './employee-listing/employee-listing.component';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { MatListModule } from '@angular/material/list';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateEmployeeComponent,
-    EmployeeListingComponent
+    EmployeeListingComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +30,11 @@ import { EmployeeListingComponent } from './employee-listing/employee-listing.co
     MatIconModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
