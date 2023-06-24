@@ -1,0 +1,260 @@
+  <div class="top1">
+        <div class="row">
+        <div class="col-12">
+        <div class="card">
+   
+        <div class="card-header clr size">
+        <h2 class="card-title mar">Employees</h2>
+        <div class="card-tools" style="margin-top: 2px;">
+  
+
+       <div class="search-button">
+        <input type="search" name="table_search" class="form-control icon" placeholder="Search.." >  <!---[(ngModel)]="search_data.name" (ngModelChange)="SearchEmployee();"-->
+       </div>
+
+  
+    
+    
+    
+    <!-------menu--------->
+    <div class="modal fade top" id="modal-sm2" style="display: none;" aria-hidden="true" >
+            
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        
+        <div class="modal-body" >
+            <h3 style="text-align: center;">Are you sure to delete?</h3>
+           
+    
+        </div>
+       
+       
+         
+        <div class="modal-footer justify-content-between" >
+            
+           
+       
+        <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal" >Submit</button>
+        <button type="button" class="btn btn-default" style="margin-right: 50px;"  data-dismiss="modal">Cancel</button>
+        
+        
+        </div>
+    
+    
+        
+        </div>
+        </div>
+        </div>
+    
+
+     
+        <button mat-icon-button  class="grid-button"  matTooltip="Change view">
+            <mat-icon  >view_module</mat-icon >
+            <mat-icon >view_list</mat-icon>
+        </button>
+      
+
+       
+        <button mat-icon-button  class="clear-button"  matTooltip="Clear filter">
+            <mat-icon>autorenew</mat-icon>
+        </button>
+      
+  
+        <button mat-icon-button class="filter-button" data-toggle="modal" data-target="#modal-sm" matTooltip="Data filter" >
+            <mat-icon>filter_list</mat-icon>
+          </button>
+   
+  
+ 
+        <button mat-mini-fab color="primary" class="add-button"  matTooltip="Add new">
+        <mat-icon>add</mat-icon>
+        </button>
+       </div>
+       
+        </div>
+    <!--------------button grid view------------------ --------------------------------->
+        
+           <div class="mat-5 space start1" *ngIf="true" >
+ 
+            <div class="row">
+                <mat-grid-list cols="7" rowHeight="25px" gutterSize="3px">
+                   <div class="line"> 
+                    <button mat-flat-button style="top:-2px;height: 30px;
+                       margin-left: 15px;">
+                        <mat-icon class="material-icons md-18" >close</mat-icon>
+                         </button>
+                </div>
+    
+            </mat-grid-list>
+            </div>
+            </div>
+    <!---------------------------end--------------------------------------------->
+    <!--------------grid view------------------ --------------------------------->
+        
+    <div class="mat-5 space start" >
+ 
+        <div class="row">
+            <!-- <mat-grid-list rowHeight="2:1" gutterSize="7px" [cols]="breakpoint"  (window:resize)="onResize($event)">
+        
+               <mat-grid-tile  *ngFor='let c of output ; let i=index;'>    
+               <div class="grid_div" (click)="ViewEmployee(c._id)">
+                <div *ngIf="c.image_url!='';else noImage">
+                    <img src={{c.image_url}} class="image_size line"></div>
+                    <ng-template #noImage>
+                    <img src="assets/img/dummy.jpg" class="image_size line">
+                    </ng-template>
+
+                    <div class="grid_name line">
+                    <span class="hedding">{{c.name}}</span><br>
+                    <span class="hedding1">{{c.mobile}}</span><br>
+                    <span class="hedding1">{{c.email_address}}</span>
+                   </div>
+                </div>
+              
+                   <div class="modal fade top" id="modal-sm1" style="display: none;" aria-hidden="true" >
+        
+                    <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                    
+                    <div class="modal-body" >
+                        <h3 style="text-align: center;">Are you sure to delete?</h3>
+                       
+                
+                    </div>
+                   
+                   
+                     
+                    <div class="modal-footer justify-content-between" >
+                        
+                       
+                   
+                    <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal" (click)="deleteEmployee()">Submit</button>
+                    <button type="button" class="btn btn-default" style="margin-right: 50px;"  data-dismiss="modal">Cancel</button>
+                    
+                    
+                    </div>
+            
+            
+                    
+                    </div>
+                    </div>
+                    </div>
+                   <div class="grid_menu">
+                   <mat-icon [matMenuTriggerFor]="menu" >more_vert</mat-icon>
+                   <mat-menu #menu="matMenu" >
+                    <button mat-menu-item (click)="editEmployee(c._id)">
+                        <span> <mat-icon>create</mat-icon>
+                        <b>Modify</b></span>
+                    </button>
+            
+                    <button mat-menu-item (click)="ViewEmployee(c._id)">
+                        <mat-icon>description</mat-icon>
+                        <span><b>View</b></span>
+                    </button>
+                            
+                    <button mat-menu-item data-toggle="modal" data-target="#modal-sm1"  (click)="DeleteEmp(c._id)">
+                        <mat-icon>delete_forever</mat-icon>
+                        <span><b>Delete</b></span>
+                    </button>
+            
+                    </mat-menu>
+                </div>
+
+           
+               </mat-grid-tile>
+        
+        </mat-grid-list> -->
+        </div>
+        </div>
+<!--------------------table view---------------------------------------->
+
+<div class="card-body table-responsive p-0">
+         <table class="table table-hover text-nowrap">
+        <thead>
+        <tr>
+       
+        <th class="text_clr">NAME</th>
+        <th class="text_clr">E-MAIL</th>
+        <th class="text_clr">MOBILE</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+       
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <div class="modal fade top" id="modal-sm1" style="display: none;" aria-hidden="true" >
+        
+                <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                
+                <div class="modal-body" >
+                    <h3 style="text-align: center;">Are you sure to delete?</h3>
+                   
+            
+                </div>
+               
+               
+                 
+                <div class="modal-footer justify-content-between" >
+                    
+                   
+               
+                <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal" >Submit</button>
+                <button type="button" class="btn btn-default" style="margin-right: 50px;"  data-dismiss="modal">Cancel</button>
+                
+                
+                </div>
+        
+        
+                
+                </div>
+                </div>
+                </div>
+            
+        <mat-icon [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+              
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item >
+            <span> <mat-icon>create</mat-icon>
+            <b>Modify</b></span>
+        </button>
+  
+        <button mat-menu-item >
+            <mat-icon>description</mat-icon>
+            <span><b>View</b></span>
+        </button>
+                
+        <button mat-menu-item data-toggle="modal" data-target="#modal-sm1" >
+            <mat-icon>delete_forever</mat-icon>
+            <span><b>Delete</b></span>
+        </button>
+  
+        </mat-menu>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        
+        </div>
+        
+        </div>
+        </div>
+<!---------------------paging------------------------------------->
+   
+<ul class="pagination position" style="padding-left:20px;">
+    <li class="paginate_button page-item previous" id="example2_previous">
+    <a  aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link count">Previous</a></li>
+    
+    <li class="paginate_button page-item "><a aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link count"></a></li>
+               
+    <li class="paginate_button page-item next" id="example2_next">
+    <a  aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+    </ul>
+<!-----------pop up------------------------------------------------>
+  
+<router-outlet></router-outlet>
