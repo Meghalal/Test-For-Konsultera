@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
@@ -12,7 +13,16 @@ export class CreateEmployeeComponent {
   msg3=""
   output: any=[];
   showPassword : boolean = false;
-  //postUrl='http://192.241.151.66:5000/login';
+  myForm:any= FormGroup ;
+  submit=false
+
+  countries = [
+    { code: 'US', name: 'United States' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'GB', name: 'United Kingdom' },
+    // Add more country objects as needed
+  ];
+  
   constructor(private router: Router) { }
   data={
     username:"",
@@ -50,31 +60,49 @@ export class CreateEmployeeComponent {
     this.msg1="Invalid user name";
     return;
    }
-    // this.logServices.Login(this.data).subscribe((res)=>{
-          
-    //   this.output=res.data
-   
-    //  if(res.success=="true" && this.output[0].user_type=="Admin")
-    // {
-    
-    //   localStorage.setItem('token',"1234");
-    //   localStorage.setItem('userType','admin')
-      
-    //   this.router.navigate(['/admin'])
-    //   localStorage.setItem('admin_id',this.output[0].user_id)
-     
-    // }
-    // else
-    // {
-    //   this.msg3="Wrong user name or password"
-    // }
-   
-  
-    // })
      
   };
+
+  
+mobileNumberValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const mobileNumberRegex = /^[1-9]\d{9}$/; 
+
+    if (control.value && !mobileNumberRegex.test(control.value)) {
+      return { 'invalidMobileNumber': true };
+    }
+
+    return null;
+  };
+}
+
+get form(){
+  return this.myForm.controls;
+}
+
+  submitForm() {
+    this.submit=true
+    console.log("form",this.form)
+    
+    if (this.myForm.valid) {
+      // Form is valid, perform form submission logic here
+      console.log(this.myForm.value);
+    }
+    else{
+      console.log("Invalid",this.myForm.value);
+    }
+  }
   
     ngOnInit(): void {
+
+      this.myForm = new FormGroup({
+        firstName: new FormControl('', Validators.required),
+        lastName: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        mobileNumber: new FormControl('', [Validators.required, this.mobileNumberValidator()]),
+        country: new FormControl('', Validators.required),
+        // Add more form controls as needed
+      });
     }
   
   }

@@ -6,37 +6,52 @@
         <h3 class="card-title color">Employee creation</h3>
         </div>
         
-        <form>
+        <!-- <form>
         <div class="card-body">
         <div class="form-group"  style="width: 90%; padding-left: 60px;" >
         <label>User name</label><span class="error">{{msg1}}</span>
         <input type="text" class="form-control" placeholder="User name" name="username" [(ngModel)]="data.username" (ngModelChange)="valuechange1($event)"/>
              
         </div>
-        <!-- <div class="form-group">
-        <label for="exampleInputPassword1">Password</label><span class="error">{{msg2}}</span> 
-    
-        <div class="input-group">
-        <input class="form-control"  [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Password" [(ngModel)]="data.password" (ngModelChange)="valuechange2($event)">
-        <div class="input-group-append">
-            <span class="input-group-text">
-        <mat-icon matSuffix (click)="togglePasswordVisibility()">
-            {{showPassword?'visibility_off':'visibility'}}
-        </mat-icon>
-        </span>
-        </div>
-        </div>
-    
-     
-        </div> -->
-        
-        
         </div>
         
         <div class="card-footer">
         <button type="submit" class="btn" (click)="btnClick();">Submit</button>
         </div>
+        </form> -->
+
+        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+        <div class="card-body">
+            <div class="form-group"  style="width: 90%; padding-left: 60px;" >
+                <label for="firstName">First Name</label><span class="error">{{msg1}}</span>
+                <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First name">
+
+
+               
+                    <div *ngIf="myForm.get('firstName').errors.required">{{msg1}}</div>
+          
+            
+            <br>  
+                <label for="lastName">Last Name</label><span class="error">{{msg2}}</span>
+                <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last name">
+            <br>
+                <label for="email">Email</label><span class="error">{{msg2}}</span>
+                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email">
+            <br>
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="Email">
+            <br>
+                <label for="country">Country</label>
+                <select id="country" formControlName="country" class="form-control">
+                <option value="">Select a country</option>
+                <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+                </select>
+            <br>
+                <button type="submit" [disabled]="myForm.invalid"  class="btn" formControlName="submitButton">Submit</button>
+            </div>
+        </div>    
         </form>
+
         </div>
         
     

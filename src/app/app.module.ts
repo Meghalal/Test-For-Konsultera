@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { MatListModule } from '@angular/material/list';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -34,7 +35,8 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
