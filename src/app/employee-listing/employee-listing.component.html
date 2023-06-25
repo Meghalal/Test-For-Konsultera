@@ -48,7 +48,7 @@
     <mat-icon [matMenuTriggerFor]="menu">more_horiz</mat-icon>
           
     <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="UpdateEmployee()">
+    <button mat-menu-item (click)="UpdateEmployee(i)">
        <mat-icon>create</mat-icon>
         Modify
     </button>
@@ -69,7 +69,7 @@
     
     </div>
     </div>
-
+<!--------------------------------employee deletion pop up---------------------------------->
     <div class="modal fade top" id="modal-sm1" style="display: none;" aria-hidden="true" >
     
         <div class="modal-dialog modal-sm">
@@ -87,7 +87,7 @@
             
            
        
-        <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 50px;" data-dismiss="modal" (click)="DeleteEmployee()">Submit</button>
         <button type="button" class="btn btn-default" style="margin-right: 50px;"  data-dismiss="modal">Cancel</button>
         
         

@@ -1,24 +1,9 @@
-    
     <div class="col-md-5 container5" >
 
         <div class="card">
         <div class="card-header wd">
         <h3 class="card-title color">Employee creation</h3>
         </div>
-        
-        <!-- <form>
-        <div class="card-body">
-        <div class="form-group"  style="width: 90%; padding-left: 60px;" >
-        <label>User name</label><span class="error">{{msg1}}</span>
-        <input type="text" class="form-control" placeholder="User name" name="username" [(ngModel)]="data.username" (ngModelChange)="valuechange1($event)"/>
-             
-        </div>
-        </div>
-        
-        <div class="card-footer">
-        <button type="submit" class="btn" (click)="btnClick();">Submit</button>
-        </div>
-        </form> -->
 
         <form [formGroup]="myForm" (ngSubmit)="submitForm()">
         <div class="card-body">

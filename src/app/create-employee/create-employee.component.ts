@@ -52,12 +52,12 @@ submitForm() {
 
       // clear the form
   
-      this.myForm.get('firstName').setValue(null);
-      this.myForm.get('lastName').setValue(null);
-      this.myForm.get('email').setValue(null);
-      this.myForm.get('mobileNumber').setValue(null);
-      this.myForm.get('country').setValue(null);
-      this.submit=false
+      // this.myForm.get('firstName').setValue(null);
+      // this.myForm.get('lastName').setValue(null);
+      // this.myForm.get('email').setValue(null);
+      // this.myForm.get('mobileNumber').setValue(null);
+      // this.myForm.get('country').setValue(null);
+      // this.submit=false
 
 //-------------routing to employee listing-------------
       this.router.navigate(['']);

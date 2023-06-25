@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EmployeeListingComponent {
 constructor(private route: ActivatedRoute, private router: Router) { }
 dataArray=Array();
-DeleteName="ssssssssssssss"
+DeleteName=""
 DeleteIndex:any
 
 //--------function for routing to create employee page-----------//
@@ -17,8 +17,9 @@ CreateEmployee(){
   this.router.navigate(['/EmployeeCreation']);
 }
 //--------function for routing to create employee page-----------//
-UpdateEmployee(){
-  this.router.navigate(['/EmployeeUpdation']);
+UpdateEmployee(index:any){
+  this.router.navigate(['/EmployeeUpdation'],{queryParams:{setData:JSON.stringify({index})}});
+ 
 }
 
 //--------function for set delete data-----------//
