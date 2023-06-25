@@ -44,22 +44,15 @@ submitForm() {
         country: this.myForm.value.country
       };
 
-      // Add the new employee to the list
+    // Add the new employee to the list
       this.employees.push(newEmployee);
+      
+    //sort the employee list in alphabetical order
+      this.employees.sort((a, b) => a.firstName.localeCompare(b.firstName));
 
-      // Save the updated employee list to local storage
+    // Save the updated employee list to local storage
       localStorage.setItem('employees', JSON.stringify(this.employees));
-
-      // clear the form
-  
-      // this.myForm.get('firstName').setValue(null);
-      // this.myForm.get('lastName').setValue(null);
-      // this.myForm.get('email').setValue(null);
-      // this.myForm.get('mobileNumber').setValue(null);
-      // this.myForm.get('country').setValue(null);
-      // this.submit=false
-
-//-------------routing to employee listing-------------
+    //routing to employee listing
       this.router.navigate(['']);
      
   }

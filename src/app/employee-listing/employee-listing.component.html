@@ -7,7 +7,7 @@
     <h2 class="card-title hedding">Employee Listing</h2>
     <div class="card-tools" style="margin-top: 2px;">
     <div class="search-button">
-    <input type="search" name="table_search" class="form-control icon" placeholder="Search.." >
+    <input type="search" name="table_search" class="form-control icon" placeholder="Search.."  [(ngModel)]="searchTerm" (ngModelChange)="search();" >
     </div>
   
   
@@ -104,7 +104,7 @@
   <li class="paginate_button page-item previous" id="example2_previous">
   <a aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link count">Previous</a></li>
   
-  <li class="paginate_button page-item "><a aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link count"></a></li>
+  <li class="paginate_button page-item "><a aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link count">{{PageCount}}</a></li>
            
   <li class="paginate_button page-item next" id="example2_next">
   <a  aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>

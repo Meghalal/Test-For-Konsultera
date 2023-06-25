@@ -4,13 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-employee-listing',
   templateUrl: './employee-listing.component.html',
-  styleUrls: ['./employee-listing.component.css']
+  styleUrls: ['./employee-listing.component.css'],
 })
 export class EmployeeListingComponent {
 constructor(private route: ActivatedRoute, private router: Router) { }
 dataArray=Array();
+EmployeeArray=Array();
 DeleteName=""
 DeleteIndex:any
+searchResults=Array();
+searchTerm:string=""
+PageCount=1
 
 //--------function for routing to create employee page-----------//
 CreateEmployee(){
@@ -36,10 +40,19 @@ DeleteEmployee(){
   this.ngOnInit();
 }
 
+//-----function for employee search-------------------//
+search(): void {
+  console.log(this.searchTerm)
+  this.dataArray= this.EmployeeArray.filter(item =>
+    item.firstName.toLowerCase().includes(this.searchTerm.toLowerCase())
+  );
+}
+
 ngOnInit(): void {
   const storedData = localStorage.getItem('employees');
     if (storedData) {
-      this.dataArray = JSON.parse(storedData);
+      this.EmployeeArray = JSON.parse(storedData);
+      this.dataArray=this.EmployeeArray
     }
  
   }
