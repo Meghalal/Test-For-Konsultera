@@ -25,30 +25,43 @@
             <div class="form-group"  style="width: 90%; padding-left: 60px;" >
                 <label for="firstName">First Name</label>
                 <span *ngIf="submit&&form.firstName.errors">
-                    <span class="error" *ngIf="myForm.get('firstName').errors.required">First name required</span>
+                    <span class="error" *ngIf="myForm.get('firstName').errors">Invalid Name</span>
+
                 </span>
                
                 <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First name" [ngClass]="{'is-invalid':submit&&form.firstName.errors}">
 
-
-               
-
-          
             
             <br>  
-                <label for="lastName">Last Name</label><span class="error">{{msg2}}</span>
-                <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last name">
+                <label for="lastName">Last Name</label>
+                <span *ngIf="submit&&form.lastName.errors">
+                    <span class="error" *ngIf="myForm.get('lastName').errors.required">Last name required</span>
+                </span>
+                <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last name" [ngClass]="{'is-invalid':submit&&form.lastName.errors}">
             <br>
-                <label for="email">Email</label><span class="error">{{msg2}}</span>
-                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email">
+
+                <label for="email">Email</label>
+                <span *ngIf="submit&&form.email.errors">
+                    <span class="error" *ngIf="myForm.get('email').errors">Invalid email</span>
+                </span>
+                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email" [ngClass]="{'is-invalid':submit&&form.email.errors}">
             <br>
+
                 <label for="mobileNumber">Mobile Number</label>
-                <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="Email">
+                <span *ngIf="submit&&form.mobileNumber.errors">
+                    <span class="error" *ngIf="myForm.get('mobileNumber').errors">Invalid Number</span>
+                </span>
+                <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="Mobile" [ngClass]="{'is-invalid':submit&&form.mobileNumber.errors}">
             <br>
                 <label for="country">Country</label>
-                <select id="country" formControlName="country" class="form-control">
-                <option value="">Select a country</option>
-                <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+
+                <span *ngIf="submit&&form.country.errors">
+                    <span class="error" *ngIf="myForm.get('country').errors">Select a country</span>
+                </span>
+
+                <select id="country" formControlName="country" class="form-control"  [ngClass]="{'is-invalid':submit&&form.country.errors}">
+                <option value="" hidden>Select a country</option>
+                <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
                 </select>
             <br>
                 <button type="submit"  class="btn" >Submit</button>

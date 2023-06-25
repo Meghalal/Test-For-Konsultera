@@ -35,13 +35,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr *ngFor="let item of dataArray;index as i">
     
-    <td ><b>sss</b></td>
-    <td>ss</td>
-    <td>ss</td>
-    <td>ss</td>
-    <td>ss</td>
+    <td ><b>{{item.firstName}}</b></td>
+    <td >{{item.lastName}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.mobileNumber}}</td>
+    <td>{{item.country}}</td>
     <td>
       
         
@@ -53,7 +53,7 @@
         Modify
     </button>
   
-    <button mat-menu-item data-toggle="modal" data-target="#modal-sm1">
+    <button mat-menu-item data-toggle="modal" data-target="#modal-sm1" (click)="SetDelete(item.firstName,i)">
         <mat-icon>delete_forever</mat-icon>
        Delete
     </button>
@@ -76,7 +76,7 @@
         <div class="modal-content">
         
         <div class="modal-body" >
-            <span style="align-self: center;">Are you sure to delete?</span>
+            <span style="align-self: center;">Are you sure to delete  "{{DeleteName}}"?</span>
            
     
         </div>

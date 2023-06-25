@@ -8,14 +8,39 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployeeListingComponent {
 constructor(private route: ActivatedRoute, private router: Router) { }
+dataArray=Array();
+DeleteName="ssssssssssssss"
+DeleteIndex:any
 
-  //--------function for routing to create employee page-----------//
-  CreateEmployee(){
-   this.router.navigate(['/EmployeeCreation']);
-  }
-  //--------function for routing to create employee page-----------//
-  UpdateEmployee(){
-    this.router.navigate(['/EmployeeUpdation']);
+//--------function for routing to create employee page-----------//
+CreateEmployee(){
+  this.router.navigate(['/EmployeeCreation']);
+}
+//--------function for routing to create employee page-----------//
+UpdateEmployee(){
+  this.router.navigate(['/EmployeeUpdation']);
+}
+
+//--------function for set delete data-----------//
+SetDelete(name:any,index:any){
+ 
+  this.DeleteName=name
+  this.DeleteIndex=index
+}
+
+//-------function for delete an employee--------//
+DeleteEmployee(){
+  this.dataArray.splice(this.DeleteIndex, 1);
+  localStorage.setItem('employees', JSON.stringify( this.dataArray));
+  this.ngOnInit();
+}
+
+ngOnInit(): void {
+  const storedData = localStorage.getItem('employees');
+    if (storedData) {
+      this.dataArray = JSON.parse(storedData);
+    }
+ 
   }
 
 }
