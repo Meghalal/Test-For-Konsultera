@@ -23,12 +23,16 @@
         <form [formGroup]="myForm" (ngSubmit)="submitForm()">
         <div class="card-body">
             <div class="form-group"  style="width: 90%; padding-left: 60px;" >
-                <label for="firstName">First Name</label><span class="error">{{msg1}}</span>
-                <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First name">
+                <label for="firstName">First Name</label>
+                <span *ngIf="submit&&form.firstName.errors">
+                    <span class="error" *ngIf="myForm.get('firstName').errors.required">First name required</span>
+                </span>
+               
+                <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First name" [ngClass]="{'is-invalid':submit&&form.firstName.errors}">
 
 
                
-                    <div *ngIf="myForm.get('firstName').errors.required">{{msg1}}</div>
+
           
             
             <br>  
@@ -47,7 +51,7 @@
                 <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
                 </select>
             <br>
-                <button type="submit" [disabled]="myForm.invalid"  class="btn" formControlName="submitButton">Submit</button>
+                <button type="submit"  class="btn" >Submit</button>
             </div>
         </div>    
         </form>

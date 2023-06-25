@@ -82,15 +82,16 @@ get form(){
 
   submitForm() {
     this.submit=true
-    console.log("form",this.form)
     
-    if (this.myForm.valid) {
-      // Form is valid, perform form submission logic here
-      console.log(this.myForm.value);
+    if(this.myForm.get('firstName').errors.required){
+      this
     }
-    else{
-      console.log("Invalid",this.myForm.value);
-    }
+    
+    // if (this.myForm.valid) {
+    //   // Form is valid, perform form submission logic here
+    //   console.log(this.myForm.value);
+    // }
+   
   }
   
     ngOnInit(): void {
