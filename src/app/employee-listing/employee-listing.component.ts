@@ -14,15 +14,13 @@ DeleteName=""
 DeleteIndex:any
 searchResults=Array();
 searchTerm:string=""
-PageIndex=0
-PageCount=0
-PageSize: number = 2;
+page:any;
 
 //--------function for routing to create employee page-----------//
 CreateEmployee(){
   this.router.navigate(['/EmployeeCreation']);
 }
-//--------function for routing to create employee page-----------//
+//--------function for routing to update employee page-----------//
 UpdateEmployee(index:any){
   this.router.navigate(['/EmployeeUpdation'],{queryParams:{setData:JSON.stringify({index})}});
  
@@ -50,25 +48,11 @@ search(): void {
   );
 }
 
-
-Next() {
-    this.PageCount=this.PageCount+1
-    this.dataArray=this.EmployeeArray.slice(this.PageIndex, this.PageIndex+ this.PageSize);
-    this.PageIndex=this.PageIndex + this.PageSize
-}
-
-Previous() {
-  this.PageCount=this.PageCount-1
-  this.dataArray=this.EmployeeArray.slice(this.PageIndex, this.PageIndex+ this.PageSize);
-  this.PageIndex=this.PageIndex - this.PageSize
-}
-
 ngOnInit(): void {
   const storedData = localStorage.getItem('employees');
     if (storedData) {
       this.EmployeeArray = JSON.parse(storedData);
       this.dataArray=this.EmployeeArray
-      this.Next();
     }
  
   }

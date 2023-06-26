@@ -20,7 +20,7 @@
             <br>  
                 <label for="lastName">Last Name</label>
                 <span *ngIf="submit&&form.lastName.errors">
-                    <span class="error" *ngIf="myForm.get('lastName').errors.required">Last name required</span>
+                    <span class="error" *ngIf="myForm.get('lastName').errors.required">Last name is required</span>
                 </span>
                 <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last name" [ngClass]="{'is-invalid':submit&&form.lastName.errors}">
             <br>

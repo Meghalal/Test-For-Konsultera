@@ -15,7 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -39,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatListModule,
     ReactiveFormsModule,
+    NgxPaginationModule
 
   ],
   providers: [],
