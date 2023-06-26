@@ -9,33 +9,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EmployeeListingComponent {
 constructor(private route: ActivatedRoute, private router: Router) { }
 dataArray=Array();
-EmployeeArray=Array();
-DeleteName=""
-DeleteIndex:any
+employeeArray=Array();
+deleteName=""
+deleteIndex:any
 searchResults=Array();
 searchTerm:string=""
 page:any;
 
 //--------function for routing to create employee page-----------//
-CreateEmployee(){
+createEmployee(){
   this.router.navigate(['/EmployeeCreation']);
 }
 //--------function for routing to update employee page-----------//
-UpdateEmployee(index:any){
+updateEmployee(index:any){
   this.router.navigate(['/EmployeeUpdation'],{queryParams:{setData:JSON.stringify({index})}});
- 
 }
 
 //--------function for set delete data-----------//
-SetDelete(name:any,index:any){
+setDelete(name:any,index:any){
  
-  this.DeleteName=name
-  this.DeleteIndex=index
+  this.deleteName=name
+  this.deleteIndex=index
 }
 
 //-------function for delete an employee--------//
-DeleteEmployee(){
-  this.dataArray.splice(this.DeleteIndex, 1);
+deleteEmployee(){
+  this.dataArray.splice(this.deleteIndex, 1);
   localStorage.setItem('employees', JSON.stringify( this.dataArray));
   this.ngOnInit();
 }
@@ -43,7 +42,7 @@ DeleteEmployee(){
 //-----function for employee search-------------------//
 search(): void {
   console.log(this.searchTerm)
-  this.dataArray= this.EmployeeArray.filter(item =>
+  this.dataArray= this.employeeArray.filter(item =>
     item.firstName.toLowerCase().includes(this.searchTerm.toLowerCase())
   );
 }
@@ -51,8 +50,8 @@ search(): void {
 ngOnInit(): void {
   const storedData = localStorage.getItem('employees');
     if (storedData) {
-      this.EmployeeArray = JSON.parse(storedData);
-      this.dataArray=this.EmployeeArray
+      this.employeeArray = JSON.parse(storedData);
+      this.dataArray=this.employeeArray
     }
  
   }

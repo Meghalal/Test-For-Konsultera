@@ -16,9 +16,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { MatListModule } from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-
-
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -39,7 +37,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatToolbarModule,
     MatListModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTooltipModule
 
   ],
   providers: [],

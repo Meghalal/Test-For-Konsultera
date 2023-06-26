@@ -15,8 +15,8 @@ export class UpdateEmployeeComponent {
 
   getdata: any = [];
   setData: any;
-  array: any;
-  Employee_index:any
+  objectArray: any;
+  employeeIndex:any
 
   countries = [
     { name: 'India' },
@@ -45,7 +45,7 @@ submitForm() {
       };
 
       // Add the new employee to the list
-      this.employees[this.Employee_index]=newEmployee;
+      this.employees[this.employeeIndex]=newEmployee;
 
       // Save the updated employee list to local storage
       localStorage.setItem('employees', JSON.stringify(this.employees));
@@ -73,15 +73,15 @@ submitForm() {
         this.getdata = params;
         this.setData = this.getdata.setData;
         const obj = JSON.parse(this.setData);
-        this.array = [obj];
-        console.log("this array=", this.array[0].index)
-        this.Employee_index = this.array[0].index;
+        this.objectArray = [obj];
+        console.log("this array=", this.objectArray[0].index)
+        this.employeeIndex = this.objectArray[0].index;
         
       })
 
       this.storedData = localStorage.getItem('employees');
       this.employees = JSON.parse(this.storedData);
-      const accessedData = this.employees[this.Employee_index];
+      const accessedData = this.employees[this.employeeIndex];
       console.log("update data=",accessedData)
       this.myForm.patchValue(accessedData);
 
