@@ -14,7 +14,9 @@ DeleteName=""
 DeleteIndex:any
 searchResults=Array();
 searchTerm:string=""
-PageCount=1
+PageIndex=0
+PageCount=0
+PageSize: number = 2;
 
 //--------function for routing to create employee page-----------//
 CreateEmployee(){
@@ -48,11 +50,25 @@ search(): void {
   );
 }
 
+
+Next() {
+    this.PageCount=this.PageCount+1
+    this.dataArray=this.EmployeeArray.slice(this.PageIndex, this.PageIndex+ this.PageSize);
+    this.PageIndex=this.PageIndex + this.PageSize
+}
+
+Previous() {
+  this.PageCount=this.PageCount-1
+  this.dataArray=this.EmployeeArray.slice(this.PageIndex, this.PageIndex+ this.PageSize);
+  this.PageIndex=this.PageIndex - this.PageSize
+}
+
 ngOnInit(): void {
   const storedData = localStorage.getItem('employees');
     if (storedData) {
       this.EmployeeArray = JSON.parse(storedData);
       this.dataArray=this.EmployeeArray
+      this.Next();
     }
  
   }
